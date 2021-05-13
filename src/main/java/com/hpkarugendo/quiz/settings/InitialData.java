@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Random;
 
 import com.hpkarugendo.quiz.models.Answer;
+import com.hpkarugendo.quiz.models.Challenger;
 import com.hpkarugendo.quiz.models.Question;
 import com.hpkarugendo.quiz.repositories.AnswerRepository;
+import com.hpkarugendo.quiz.repositories.ChallengerRepository;
 import com.hpkarugendo.quiz.repositories.QuestionRepository;
 import com.hpkarugendo.quiz.services.AnswerService;
 import com.hpkarugendo.quiz.services.Databank;
@@ -26,6 +28,8 @@ public class InitialData implements CommandLineRunner {
     private QuestionRepository qRepository;
     @Autowired
     private AnswerRepository aRepository;
+    @Autowired
+    private ChallengerRepository chRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -110,6 +114,11 @@ public class InitialData implements CommandLineRunner {
                 toUpdate.add(saved);
             }
             qService.saveAllQuestions(toUpdate);
+
+            //Initialise Test User
+            Challenger challenger = new Challenger("Test User", "test.user@hpkarugendo.com");
+            chRepository.save(challenger).printChallenger();
+
             System.out.println("FINISHED SAVING DATA TO DB!");
             System.out.println("FINISHED PREPARING DATA!");
             List<Question> qs = qService.listAllQuestions();

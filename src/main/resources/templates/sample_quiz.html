@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
   <head>
-    <title>Hello</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,27 +11,27 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-      <div class="container">
-          <div class="align-items-center title-div">
-            <p class="text-center welcome-p">Welcome to</p>
-            <h1 class="display-2 text-center w-100 title-h2">The Geek Dorm</h1>
-            <p class="text-center subtitle-p">Test your knowledge with quizes that contain five random questions each. The questions have been aggregated from a famous British Reality Show - <em>Who Wants To Be A Millionaire!</em></p>
-          </div>
-          <div class="row options-div">
-            <div class="col-md-6 options-div text-center login-div">
-                <div class="option-div login-div-link">
-                  <p class="option-p login-p">Welcome Back</p>
-                  <a href="#" class="options-a login-a">SIGN IN</a>
+    <div class="container">
+        <div class="sample-q-main">
+            <h1 class="display-2 sample-q-h1">Sample Quiz</h1>
+            <hr class="sample-q-hr">
+            <div th:each="q, i : ${quizObject.questions}" class="row sample-q-q-div">
+                <div class="row">
+                  <div class="col-sm-12 sample-q-div">
+                    <h1 th:text="${i.index+1}+'. '+${q.question.question}" class="sample-q-q-h1">Question</h1>
+                  </div>
                 </div>
-            </div>
-            <div class="col-md-6 options-div text-center trial-div">
-                <div class="option-div trial-div-link">
-                  <p class="option-p trial-p">Are You Worthy?</p>
-                  <a th:href="@{/new-quiz}" class="options-a trial-a">TRY ONE</a>
+                <div class="row">
+                  <div th:each="a : ${q.question.answers}" class="col-md-12 sample-q-q-as">
+                    <p th:text="${a.label}+'. '+${a.answer}" class="sample-q-a-div">Answer</p>
+                  </div>
                 </div>
+                <hr>
             </div>
-          </div>
-      </div>
+            <!-- <form action="@{/quiz-submit}" th:object="${quizObject}" class="form sample-q-form">
+            </form> -->
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

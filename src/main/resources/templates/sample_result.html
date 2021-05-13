@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
   <head>
-    <title>Hello</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,27 +11,12 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-      <div class="container">
-          <div class="align-items-center title-div">
-            <p class="text-center welcome-p">Welcome to</p>
-            <h1 class="display-2 text-center w-100 title-h2">The Geek Dorm</h1>
-            <p class="text-center subtitle-p">Test your knowledge with quizes that contain five random questions each. The questions have been aggregated from a famous British Reality Show - <em>Who Wants To Be A Millionaire!</em></p>
-          </div>
-          <div class="row options-div">
-            <div class="col-md-6 options-div text-center login-div">
-                <div class="option-div login-div-link">
-                  <p class="option-p login-p">Welcome Back</p>
-                  <a href="#" class="options-a login-a">SIGN IN</a>
-                </div>
-            </div>
-            <div class="col-md-6 options-div text-center trial-div">
-                <div class="option-div trial-div-link">
-                  <p class="option-p trial-p">Are You Worthy?</p>
-                  <a th:href="@{/new-quiz}" class="options-a trial-a">TRY ONE</a>
-                </div>
-            </div>
-          </div>
-      </div>
+    <div class="container">
+        <div class="sample-r-main">
+            <h2 class="display-4">Your Grade is:</h2>
+            <p class="sample-r-p"><span th:text="${score} + '%'" class="display-1 sample-r-span">-1%</span></p>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
