@@ -1,18 +1,32 @@
-package com.hpkarugendo.quiz;
+package com.hpkarugendo.quiz.models;
 
 import java.util.Arrays;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OrderColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Challenge {
-    //@Id
-    //@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
-    //@ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @ElementCollection
+    @OrderColumn
     private Question[] questions;
-    //@ManyToOne
+    @ManyToOne
     private Challenger challenger;
     private double score;
-    //@Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     public Challenge(){

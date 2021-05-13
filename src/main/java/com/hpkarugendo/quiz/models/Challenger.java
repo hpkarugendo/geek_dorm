@@ -1,15 +1,21 @@
-package com.hpkarugendo.quiz;
+package com.hpkarugendo.quiz.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Challenger {
-    //@Id
-    //@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     private String username;
     private String email;
-    //@OneToMany
+    @OneToMany(mappedBy = "challenger")
     private List<Challenge> challenges;
     private double totalScore;
 

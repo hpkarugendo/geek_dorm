@@ -1,10 +1,10 @@
-package com.hpkarugendo.quiz;
+package com.hpkarugendo.quiz.services;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Databank {
+import com.hpkarugendo.quiz.models.Question;
 
+public abstract class Databank {
     public static final List<Question> quizQuestions = new ArrayList<>();
-    
 }
